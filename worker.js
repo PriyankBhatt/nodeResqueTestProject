@@ -39,6 +39,7 @@ new Promise(function(resolve,reject) {
 	multiWorker.on('failure',           function(workerId, queue, job, failure){ console.log("worker["+workerId+"] job failure " + queue + " " + JSON.stringify(job) + " >> " + failure); });
 	multiWorker.on('success',           function(workerId, queue, job, result){  console.log("worker["+workerId+"] job success " + queue + " " + JSON.stringify(job) + " >> " + result); });
 	multiWorker.start();
+	Resque.enqueue('development', 'increment', [1]);
 	process.on('SIGINT', function(){
 	  multiWorker.stop(function(){
 	    scheduler.end(function() {
