@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.13.3",
     "ioredis": "^1.9.1",
     "node-resque": "^1.0.1"
   }
